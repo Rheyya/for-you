@@ -177,6 +177,31 @@
     text-align:center;
     line-height:1.25;
   }
+  .see-you-list{
+  width:100%;
+  border-top:1px solid rgba(194,163,106,0.20);
+}
+
+.see-you-item{
+  padding:24px 0;
+  border-bottom:1px solid rgba(243,238,229,0.10);
+}
+
+.see-you-item h3{
+  font-family:'Fraunces', serif;
+  font-size:clamp(1.3rem, 5vw, 1.9rem);
+  font-weight:430;
+  color:var(--cream);
+  margin-bottom:8px;
+}
+
+.see-you-item p{
+  color:var(--sage);
+  font-size:clamp(1rem, 3.5vw, 1.1rem);
+  line-height:1.6;
+  max-width:420px;
+  margin:0 auto;
+}
 
 </style>
 </head>
@@ -253,14 +278,40 @@
 <!-- ===================== SECTION 3 — I SEE YOU ===================== -->
 <section id="see-you" style="background: linear-gradient(180deg, #0a140c 0%, #0d1c12 60%, #0a140c 100%);">
   <div class="contour-bg"></div>
-  <div class="section-inner" style="max-width:600px;">
-    <p class="reveal serif" style="font-size: clamp(1.6rem, 6vw, 2.1rem); color:var(--cream); margin-bottom:48px;">
-      I see you.
-    </p>
+  <div class="section-inner" style="max-width:650px;">
 
-    <div id="trait-grid" style="display:grid; grid-template-columns: repeat(2, 1fr); gap:16px; width:100%;">
-      <!-- trait cards injected by JS -->
-    </div>
+  <h2 class="reveal serif"
+      style="font-size:clamp(2rem, 8vw, 3.5rem);
+             line-height:1.05;
+             letter-spacing:-0.04em;
+             color:var(--cream);
+             margin-bottom:40px;">
+    I See You
+  </h2>
+
+  <div class="see-you-list">
+
+<div class="see-you-item reveal">
+  <h3>Leader</h3>
+  <p>The way people look to you without always saying it.</p>
+</div>
+
+<div class="see-you-item reveal">
+  <h3>Protector</h3>
+  <p>You care in ways that feel steady.</p>
+</div>
+
+<div class="see-you-item reveal">
+  <h3>Reliable</h3>
+  <p>You keep showing up, even when it's heavy.</p>
+</div>
+
+<div class="see-you-item reveal">
+  <h3>Resilient</h3>
+  <p>You keep becoming, even through what tries to break you.</p>
+</div>
+
+  </div>
 
     <p class="reveal body-font" style="font-size: clamp(0.95rem, 3.6vw, 1.08rem); color:var(--sage); line-height:1.7; margin-top:46px; max-width:420px;">
       I know people depend on you more than they probably say.
@@ -452,34 +503,7 @@
   });
 
   /* ---------------- Trait cards (Section 3) ---------------- */
-  const traits = ['Leader','Mentor','Protector','Provider','Disciplined','Resilient'];
-  const traitGrid = document.getElementById('trait-grid');
-  const sprigSVG = `<svg class="sprig" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M30,30 C24,30 18,26 16,18" stroke="#6F8A74" stroke-width="1" stroke-linecap="round"/>
-      <ellipse cx="20" cy="20.5" rx="3.6" ry="1.8" transform="rotate(40 20 20.5)" fill="#6F8A74" opacity="0.75"/>
-      <ellipse cx="17" cy="14.5" rx="3" ry="1.5" transform="rotate(40 17 14.5)" fill="#6F8A74" opacity="0.6"/>
-    </svg>`;
-  traits.forEach((t, i) => {
-    const card = document.createElement('div');
-    card.className = 'reveal trait-card reveal-delay-' + ((i % 6) + 1);
-    card.style.cssText = `
-      position:relative;
-      border:1px solid var(--gold-soft);
-      border-radius:14px;
-      padding: 22px 14px;
-      background: linear-gradient(160deg, rgba(194,163,106,0.07), rgba(194,163,106,0.02));
-      font-family:'Fraunces','Iowan Old Style',Georgia,serif;
-      font-size: clamp(0.95rem, 3.6vw, 1.08rem);
-      color: var(--cream);
-      letter-spacing: 0.01em;
-      transition: transform .5s var(--ease), border-color .5s var(--ease);
-      overflow:hidden;
-    `;
-    card.textContent = t;
-    card.insertAdjacentHTML('beforeend', sprigSVG);
-    traitGrid.appendChild(card);
-    io.observe(card);
-  });
+  
 
   /* ---------------- Personal grid (Section 4) — tap to reveal ---------------- */
   const icon = {
@@ -784,6 +808,7 @@ function vinylIcon(label){
     .you-card:hover{ border-color: var(--gold); }
     .artist-pill:hover{ border-color: var(--gold); background: rgba(194,163,106,0.12); }
   }
+
 </style>
 </body>
 </html>
